@@ -1,0 +1,230 @@
+.park-name {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.park-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2em;
+}
+
+.park-map {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2em;
+}
+
+.kvadratInfo{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #ffedad;
+    border-radius: 4%;
+}
+
+.park-detailsSlika {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+.park-detailsSlika img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 1em;
+    transition: transform 0.2s;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+  
+  .park-detailsSlika img:first-child {
+    max-width: 50%; 
+  }
+  
+  .park-detailsSlika img:hover {
+    transform: scale(1.1);
+  }
+
+  .park-detailsMaps{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+  }
+
+  #ocjena{
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10%;
+    font-size: large;
+  }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  #comment-input {
+    width: 100%;
+    height: 100px; 
+    padding: 5px;
+    resize: vertical;
+    margin-bottom: 10px;
+  }
+  
+  #rating-dropdown {
+    width: 20%;
+    margin-bottom: 10px;
+  }
+  
+#leave-comment-btn {
+  padding: 12px 20px;
+  background-color: #ff6b6b; 
+  color: #fff; 
+  border: none;
+  border-radius: 25px; 
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase; 
+  margin-left: 40%;
+  margin-top: -5%;
+}
+
+#leave-comment-btn:hover {
+  background-color: #ff4949; 
+}
+
+#submit-comment-btn {
+  padding: 12px 20px;
+  background-color: #008000; 
+  color: #fff; 
+  border: none;
+  border-radius: 25px; 
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase; 
+}
+
+#submit-comment-btn:hover {
+  background-color: #006400; 
+}
+
+#check-in-btn,
+#see-checked-in-users-btn,
+#check-out-btn {
+  padding: 12px 20px;
+  background-color: #008000; 
+  color: #fff; 
+  border: none;
+  border-radius: 25px; 
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase; 
+}
+
+#check-in-btn:hover,
+#see-checked-in-users-btn:hover,
+#check-out-btn:hover {
+  background-color: #006400; 
+}
+
+
+  
+  
+  .leave-comment-btn{
+    justify-content: center;
+  }
+
+ 
+
+  .alert {
+    display: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.pagination a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination a.active {
+  font-weight: bold;
+}
+
+.park-detailsKomentari {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.park-detailsKomentari p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.checkGumbi{
+  margin-left: 7%;
+  margin-bottom: 10%;
+}
+
+.checkGumbiTekst{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.checkGumbiTekst p {
+  margin-left: 20%;
+  margin-right: 20%;
+}

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/tindogCss.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <title>Tindog</title>
+</head>
+<body>
+
+    <div class="tinder">
+        <div class="tinder--status">
+          <i class="fa fa-remove"></i>
+          <i class="fa fa-heart"></i>
+        </div>
+      
+        <div class="tinder--cards" id="tinder--cards">
+          <div class="loading-indicator">Učitavanje...</div>
+      </div>
+      
+      
+        <div class="tinder--buttons">
+          <button id="nope"><i class="fa fa-remove"></i></button>
+          <button id="love"><i class="fa fa-heart"></i></button>
+        </div>
+      </div>
+
+      <div class="profile-button">
+        <a href="tinderProfil.html">
+            <i class="fa fa-user"></i>
+        </a>
+      </div>
+    
+
+      <div class="close-button">
+        <a href="naslovna.html">
+            <i class="fa fa-times"></i>
+        </a>
+      </div>
+
+      <div class="modal" id="match-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>IT'S A MATCH</h2>
+            <div class="match-images">
+                <img src="../image/tindog/match.jpg" alt="Matched Dogs">
+            </div>
+            <p class="match-text">Congratulations! You have a match.</p>
+            <button id="send-email" data-username="">SEND OWNER AN EMAIL</button>
+        </div>
+    </div>
+    
+
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
+      <script>
+        'use strict';
+
+        var tinderContainer = document.querySelector('.tinder');
+        var allCards = document.querySelectorAll('.tinder--card');
+        var nope = document.getElementById('nope');
+        var love = document.getElementById('love');
+        var counter = 0;
+
+        function initCards(card, index) {
+        var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
+
+        newCards.forEach(function (card, index) {
+            card.style.zIndex = allCards.length - index;
+            card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+            card.style.opacity = (10 - index) / 10;
+        });
+        
+        tinderContainer.classList.add('loaded');
+        }
+
+        initCards();
+
+        allCards.forEach(function (el) {
+        var hammertime = new Hammer(el);
+
+        hammertime.on('pan', function (event) {
+            el.classList.add('moving');
+        });
+
+        hammertime.on('pan', function (event) {
+            if (event.deltaX === 0) return;
+            if (event.center.x === 0 && event.center.y === 0) return;
+
+            tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
+            tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+
+            var xMulti = event.deltaX * 0.03;
+            var yMulti = event.deltaY / 80;
+            var rotate = xMulti * yMulti;
+
+            event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+        });
+
+        hammertime.on('panend', function (event) {
+            el.classList.remove('moving');
+            tinderContainer.classList.remove('tinder_love');
+            tinderContainer.classList.remove('tinder_nope');
+
+            var moveOutWidth = document.body.clientWidth;
+            var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+            event.target.classList.toggle('removed', !keep);
+
+            if (keep) {
+            event.target.style.transform = '';
+            } else {
+            var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+            var toX = event.deltaX > 0 ? endX : -endX;
+            var endY = Math.abs(event.velocityY) * moveOutWidth;
+            var toY = event.deltaY > 0 ? endY : -endY;
+            var xMulti = event.deltaX * 0.03;
+            var yMulti = event.deltaY / 80;
+            var rotate = xMulti * yMulti;
+
+            event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+            initCards();
+            }
+        });
+        });
+
+        function createButtonListener(love) {
+        return function (event) {
+            var cards = document.querySelectorAll('.tinder--card:not(.removed)');
+            var moveOutWidth = document.body.clientWidth * 1.5;
+            var chosenDog; 
+            if (!cards.length) return false;
+
+            var card = cards[0];
+            card.classList.add('removed');
+
+            if (love) {
+            chosenDog = card.querySelector('#cardUsername').textContent;
+            document.dispatchEvent(new CustomEvent('dogLiked', { detail: chosenDog }));
+            card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+            } else {
+            card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+            }
+
+            initCards();
+
+            event.preventDefault();
+        };
+        }
+
+        var nopeListener = createButtonListener(false);
+        var loveListener = createButtonListener(true);
+
+        nope.addEventListener('click', nopeListener);
+        love.addEventListener('click', loveListener);
+
+      </script>
+
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+          import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+          
+          const firebaseConfig = {
+            apiKey: "AIzaSyDDo7-gK5mkQu7Duc6UfoICRivPIP2-r7o",
+            authDomain: "parkandbark-bddad.firebaseapp.com",
+            databaseURL: "https://parkandbark-bddad-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "parkandbark-bddad",
+            storageBucket: "parkandbark-bddad.appspot.com",
+            messagingSenderId: "140773447982",
+            appId: "1:140773447982:web:9d3e06fa2858c26d21c2bf",
+            measurementId: "G-PPN7PHYLNJ"
+          };
+
+          const app = firebase.initializeApp(firebaseConfig);
+
+          var database = firebase.database();
+          var tindogRef = database.ref('tindog');
+
+          if (localStorage.getItem("username") === null) {
+                window.location.href = "login.html";
+            }
+
+
+          tindogRef.on('value', function(snapshot) {
+            var dogs = snapshot.val();
+            var cardsContainer = document.getElementById('tinder--cards');
+            cardsContainer.innerHTML = ""; 
+
+            for(var dogId in dogs) {
+              var dog = dogs[dogId];
+              var dogCard = createDogCard(dog);
+              cardsContainer.appendChild(dogCard);
+            }
+
+            initCards(); 
+
+          });
+
+          function createDogCard(dog) {
+            var card = document.createElement('div');
+            card.className = 'tinder--card';
+
+            var img = document.createElement('img');
+            img.src = dog.image;
+            card.appendChild(img);
+
+            var h3 = document.createElement('h3');
+            h3.textContent = dog.name;
+            card.appendChild(h3);
+
+            var p = document.createElement('p');
+            p.textContent = dog.description;
+            card.appendChild(p);
+
+            var usernameHidden = document.createElement('p');
+            usernameHidden.textContent = dog.username;
+            usernameHidden.style.display= "none";
+            usernameHidden.setAttribute('id', 'cardUsername');
+            card.appendChild(usernameHidden);
+
+            var HiddenId = document.createElement('p');
+
+
+            return card;
+          }
+
+          let likedDogUsername;
+
+          document.addEventListener('dogLiked', function(e) {
+              likedDogUsername = e.detail;
+              let loggedInUser = localStorage.getItem("username");
+              let potentialMatch1 = loggedInUser + likedDogUsername;
+              let potentialMatch2 = likedDogUsername + loggedInUser;
+
+              let matchRef = ref(database, 'match'); 
+              get(matchRef).then((snapshot) => {
+                  if (snapshot.exists()) {
+                      let matchData = snapshot.val();
+
+                      return set(ref(database, 'match/' + potentialMatch1), { match: potentialMatch1 }).then(() => {
+                          return get(matchRef);
+                      });
+
+                  } else {
+                      return set(ref(database, 'match/' + potentialMatch1), { match: potentialMatch1 }).then(() => {
+                          return get(matchRef);
+                      });
+                  }
+              }).then((updatedSnapshot) => {
+                  let updatedMatchData = updatedSnapshot.val();
+
+                  if (updatedMatchData[potentialMatch1] && updatedMatchData[potentialMatch2]) {
+                    document.getElementById('match-modal').style.display = 'block';
+                    document.getElementById('close-modal').addEventListener('click', function() {
+                    document.getElementById('match-modal').style.display = 'none';
+
+                    var sendEmailButton = document.getElementById('send-email');
+                });
+
+
+                  }
+              }).catch((error) => {
+                  console.error("Error reading match data:", error);
+              });
+          });
+
+          var sendEmailButton = document.getElementById('send-email');
+
+           sendEmailButton.addEventListener('click', function() {
+              
+                  var usersRef = ref(database, 'users');
+
+                  get(usersRef).then((snapshot) => {
+                      if (snapshot.exists()) {
+                          var allUsers = snapshot.val();
+
+                          for (var userId in allUsers) {
+                              var userData = allUsers[userId];
+
+                              if (userData.username === likedDogUsername) {
+                                  var ownerEmail = userData.email;
+                                  var mailtoLink = 'mailto:' + ownerEmail;
+
+                                  window.open(mailtoLink);
+
+                                  document.getElementById('match-modal').style.display = 'none';
+
+                                  break;
+                              }
+                          }
+                      } else {
+                          console.error('Nema korisnika u bazi podataka.');
+                      }
+                  }).catch((error) => {
+                      console.error('Greška pri dohvaćanju podataka iz baze podataka:', error);
+                  });
+
+          });
+          
+            
+      </script>
+
+</body>
+</html>

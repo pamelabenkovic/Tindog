@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/clanak.css">
+    <link rel="stylesheet" href="../css/navig.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova|Poppins" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Article</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <header class="header">
+          <div class="logo">
+            <a href="naslovna.html"><img src="../image/Park&Bark.png" alt="Park&Bark Logo"></a>
+          </div>
+          <nav class="navigation">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="parks.html">PARKS</a></li>
+              <li><a href="tindog.html">TINDOG</a></li>
+              <li><a href="woofbox.html">P&B BOX</a></li>
+              <li><a href="login.html" id="logout-link">LOG OUT</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <div class="container-fluid" id="article-details">
+        
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+        
+        const firebaseConfig = {
+        apiKey: "AIzaSyDDo7-gK5mkQu7Duc6UfoICRivPIP2-r7o",
+        authDomain: "parkandbark-bddad.firebaseapp.com",
+        databaseURL: "https://parkandbark-bddad-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "parkandbark-bddad",
+        storageBucket: "parkandbark-bddad.appspot.com",
+        messagingSenderId: "140773447982",
+        appId: "1:140773447982:web:9d3e06fa2858c26d21c2bf",
+        measurementId: "G-PPN7PHYLNJ"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+
+        var logoutLink = document.getElementById('logout-link');
+
+        logoutLink.addEventListener('click', function () {
+            localStorage.removeItem('username');
+
+            window.location.href = 'login.html';
+        });
+
+        function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+        }   
+
+        function fetchAndDisplayArticleDetails() {
+        const articleId = getQueryParam('id');
+        if (articleId) {
+            const database = firebase.database(app);
+            const articleRef = database.ref('article').child(articleId);
+
+            articleRef.once('value')
+            .then(async (snapshot) => {
+                const articleData = snapshot.val();
+                if (articleData) {
+
+            document.getElementById('article-details').innerHTML = `
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="${articleData.image}" alt="Glavna slika" class="velikaSlika">
+                            <h2 class="article-title">${articleData.title}</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="${articleData.authorImg}" alt="Autor" class="autorSlika">
+                            <p class="autor-ime-prezime">${articleData.author}</p>
+                            <p class= "autor-ime-prezime">Last updated: ${articleData.date}</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p class="article-text">
+                                ${articleData.text}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                            `;
+                                
+                } else {
+                console.log("No such document!");
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
+        }
+       
+
+
+        window.addEventListener('load', function () {
+        const articleId = getQueryParam('id');
+        if (articleId) {
+            fetchAndDisplayArticleDetails();
+        }
+    });
+    </script>
+    <div class="container">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="wrap">  
+                        <div class="dog-body">
+                          <div class="dog-ear left"></div>
+                          <div class="dog-ear right"></div>
+                          <div class="dog-eye left"></div>
+                          <div class="dog-eye right"></div>    
+                          <div class="dog-nose"></div>
+                          <div class="dog-collar"></div>
+                          <div class="dog-foot left"></div>
+                          <div class="dog-foot right"></div>
+                          <div class="dog-tail"></div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 linkovi">
+                    <a href="about.html">ABOUT</a><br>
+                    <a href="parks.html">PARKS</a><br>
+                    <a href="tindog.html">TINDOG</a><br>
+                    <a href="woofbox.html">PARK&BARK BOX</a><br>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 contact">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="contact-text">0911683095</span>
+                    </div>
+                
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-text">barkandpark@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 ikone">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>

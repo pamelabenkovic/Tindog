@@ -1,0 +1,115 @@
+.parallax1 {
+    background-image: url('../image/about/yellowDog.jpg'); 
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+.parallax2 {
+    background-image: url('../image/parks/dubrava.jpg'); 
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+.parallax3 {
+    background-image: url('../image/about/dogBox2.jpg'); 
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+.parallax4 {
+    background-image: url('../image/about/tindog2.jpg'); 
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+.tekst{
+    height:750px;
+    background-color:#ffedad;
+    font-size:36px;
+    
+}
+
+.tekst h2{
+    text-align: center;
+}
+
+.naslov{
+    text-align: center;
+    padding-top: 5%;
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+.odlomak{
+    font-size: 24px;
+    padding-top: 15%;
+    padding-left: 5%;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slika1 img{
+    max-width: 75%; 
+    height: auto;
+    display: block; 
+    margin-top: 15%; 
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.slika2 img{
+    max-width: 75%; 
+    height: auto; 
+    display: block; 
+    margin-top: 10%; 
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.odlomak2{
+    font-size: 1.5vw;
+    padding-top: 15%;
+    padding-left: 5%;
+    padding-right: 10%;
+    text-align: left; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.slika4 img{
+    max-width: 75%; 
+    height: auto; 
+    display: block; 
+    margin-top: 5%; 
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1600px) {
+    .odlomak, .odlomak2 {
+        font-size: 24px;
+    }
+}
+
+.tekst{
+   
+        overflow: auto;
+
+}

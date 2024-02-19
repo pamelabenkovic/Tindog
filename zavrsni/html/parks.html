@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/parks.css"> 
+    <link rel="stylesheet" href="../css/navig.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova|Poppins" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dog Park Nav</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <header class="header">
+            <div class="logo">
+                <a href="naslovna.html"><img src="../image/Park&Bark.png" alt="Park&Bark Logo"></a>
+            </div>
+            <nav class="navigation">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="parks.html">PARKS</a></li>
+                    <li><a href="tindog.html">TINDOG</a></li>
+                    <li><a href="woofbox.html">P&B BOX</a></li>
+                    <li><a href="login.html" id="logout-link">LOG OUT</a></li>                     
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <script>
+        document.addEventListener("click", function (event) {
+          const isLanguageLabelClicked = event.target.matches(".language-label, .language-label *");
+      
+          if (isLanguageLabelClicked) {
+            const dropdown = event.target.closest("li").querySelector(".language-dropdown");
+      
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+          } else {
+            const allDropdowns = document.querySelectorAll(".language-dropdown");
+            allDropdowns.forEach((dropdown) => {
+              dropdown.style.display = "none";
+            });
+          }
+        });
+      </script>
+
+    
+    <div class="container">
+
+        <h1>DOG PARKS</h1>
+
+        <div class="search-container">
+            <input type="text" id="park-search" placeholder="Search parks by name...">
+        </div>
+
+        <div class="dog-park-box" data-park-id="1">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/malePutine.jpg" alt="Male Putine park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći park Male putine</h2>
+                </div>
+            </div>
+        </div>
+    
+        <div class="dog-park-box" data-park-id="2">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/gajnice.jpg" alt="Gajnice park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Gajnice</h2>
+                </div>
+            </div>
+        </div>
+    
+        <div class="dog-park-box" data-park-id="3">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/jarun.jpg" alt="Jarun park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Jarun</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="4">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/tresnjevka.jpg" alt="Tresnjevka park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Trešnjevka</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="5">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/zadarska.jpg" alt="Zadarska park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Zadarska ulica</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="6">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/trnje.jpg" alt="Trnje park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Trnje</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="7">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/savica.jpg" alt="Savica park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Savica</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="8">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/folnegovicevo.jpg" alt="Folnegovićevo park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Folnegovićevo</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="9">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/zitnjak.jpg" alt="Žitnjak park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Žitnjak</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="10">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/ravnice.jpg" alt="Ravnice park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Ravnice</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="11">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/sesvete.jpg" alt="Sesvete park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Sesvete</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="12">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/branimir.jpg" alt="Branimir park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Branimir</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="13">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/utrine.jpg" alt="Utrine park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Utrine</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="14">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/trnsko.jpg" alt="Trnsko park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Trnsko</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="15">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/sopot.jpg" alt="Sopot park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Sopot</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="dog-park-box" data-park-id="16">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../image/parks/dugave.jpg" alt="Dugave park">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Pseći Park Dugave</h2>
+                </div>
+            </div>
+        </div>
+
+
+      </div>
+
+
+      <script>
+
+        var logoutLink = document.getElementById('logout-link');
+
+        logoutLink.addEventListener('click', function () {
+            localStorage.removeItem('username');
+
+            window.location.href = 'login.html';
+        });
+
+        const parkBoxes = document.querySelectorAll('.dog-park-box');
+    
+        function filterParks() {
+            const searchText = document.getElementById('park-search').value.trim().toLowerCase();
+            parkBoxes.forEach((box) => {
+                const parkName = box.querySelector('h2').textContent.trim().toLowerCase();
+                if (parkName.includes(searchText)) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        }
+    
+        document.getElementById('park-search').addEventListener('input', filterParks);
+
+        parkBoxes.forEach((box) => {
+        box.addEventListener('click', () => {
+            const parkId = box.dataset.parkId;
+
+            window.location.href = `parkdetail.html?id=${parkId}`;
+        });
+    });
+    
+        filterParks();
+    </script>
+
+<div class="container">
+    <footer class="footer">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="wrap">  
+                    <div class="dog-body">
+                      <div class="dog-ear left"></div>
+                      <div class="dog-ear right"></div>
+                      <div class="dog-eye left"></div>
+                      <div class="dog-eye right"></div>    
+                      <div class="dog-nose"></div>
+                      <div class="dog-collar"></div>
+                      <div class="dog-foot left"></div>
+                      <div class="dog-foot right"></div>
+                      <div class="dog-tail"></div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-lg-3 col-md-12 col-sm-12 linkovi">
+                <a href="about.html">ABOUT</a><br>
+                <a href="parks.html">PARKS</a><br>
+                <a href="tindog.html">TINDOG</a><br>
+                <a href="woofbox.html">PARK&BARK BOX</a><br>
+            </div>
+
+            <div class="col-lg-3 col-md-12 col-sm-12 contact">
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <span class="contact-text">0911683095</span>
+                </div>
+            
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <span class="contact-text">barkandpark@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-12 col-sm-12 ikone">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+  </div>
+</body>
+</html>

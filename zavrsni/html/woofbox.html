@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/woofbox.css">
+    <link rel="stylesheet" href="../css/navig.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/dogButton.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Park&Bark Box</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="header">
+          <div class="logo">
+            <a href="naslovna.html"><img src="../image/Park&Bark.png" alt="Park&Bark Logo"></a>
+          </div>
+          <nav class="navigation">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="parks.html">PARKS</a></li>
+              <li><a href="tindog.html">TINDOG</a></li>
+              <li><a href="woofbox.html">P&B BOX</a></li>
+              <li><a href="login.html" id="logout-link">LOG OUT</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <img src="../image/woofbox.jpg" class="parknbarkboxSlika">
+            </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 naslov">
+                <h1>PARK&BARK BOX DELIVERED EVERY MONTH</h1>
+                <h2>SEPTEMBER</h2>
+                <h3>Introducing Park&Bark Box: Elevate Your Dog's Every Month!</h3><br>
+                <h3>49,99€/MONTH</h3><br>
+    
+                <p>Unleash a world of excitement and joy for your furry friend with the ultimate monthly subscription – Park&Bark Box. <br>
+                    Designed with your beloved canine companion in mind, this remarkable subscription service offers an unparalleled experience that's bound to get those tails wagging and those paws dancing!
+                    
+                    Imagine a world where your canine companion eagerly awaits the arrival of a special package, brimming with goodies tailored to their tastes and preferences. With Park&Bark Box, this dream becomes a reality. For just 49.99 euros a month, your furry family member will embark on a journey of discovery, receiving a carefully curated assortment of premium snacks, top-notch equipment, and engaging toys, all delivered right to your doorstep.</p>
+            </div>
+          </div>
+      </div>
+      
+
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/iteam1.jpg" alt="Proizvod 1" class="img-responsive">
+                <h3>Real Nature fish snack 70g</h3>
+                <p>SNACK</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item2.jpg" alt="Proizvod 2" class="img-responsive">
+                <h3>Trixie Veggie Safari 84g</h3>
+                <p>SNACK</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item3.jpg" alt="Proizvod 3" class="img-responsive">
+                <h3>Kong toy honkers duck L</h3>
+                <p>TOY</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item4.jpg" alt="Proizvod 4" class="img-responsive">
+                <h3>Trixie ball on a rope</h3>
+                <p>TOY</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item5.jpg" alt="Proizvod 5" class="img-responsive">
+                <h3>Trixie water bowl 0,75L</h3>
+                <p>EQUIPMENT</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item6.jpg" alt="Proizvod 6" class="img-responsive">
+                <h3>Rainbow Stars dispenzer Panda 182 bags, pink</h3>
+                <p>EQUIPMENT</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item7.jpg" alt="Proizvod 4" class="img-responsive">
+                <h3>Real Nature Deli bites chicken </h3>
+                <p>SNACK</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item8.jpg" alt="Proizvod 5" class="img-responsive">
+                <h3>Kong toy ball medium</h3>
+                <p>TOY</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="../image/toys/item9.jpg" alt="Proizvod 6" class="img-responsive">
+                <h3>Trixie grooming glove blue</h3>
+                <p>EQUIPMENT</p>
+            </div>
+        </div>
+
+        <div class="container dogButton">
+            <div class="button-container">
+              <div class="dog">
+                <div class="tail"></div>
+                <div class="body"></div>
+                <div class="head">
+                  <div class="eyes">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                  </div>
+                  <div class="nuzzle">
+                    <div class="mouth">
+                      <div class="tongue"></div>
+                    </div>
+                    <div class="nose">
+                      <div class="nostrils"></div>
+                      <div class="highlight"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ears">
+                  <div class="left"></div>
+                  <div class="right"></div>
+                </div>
+              </div>
+              <button id="subcribe-btn-modal">
+                SUBSCRIBE!
+              </button>
+              <div class="paw"></div>
+              <div class="paw top"></div>
+            </div>
+          </div>
+
+          <div class="modal" id="comment-modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <form id="comment-form">
+                    <h2>Put in your information</h2>
+                    <span class="space">First name:</span>
+                    <input type="text" class="space" name="name" id="name" placeholder="Name" maxlength="30"/><br>
+
+                    <span class="space">Last name:</span>
+                    <input type="text" class="space" name="lastName" id="lastName" placeholder="Last name"
+                     maxlength="30"/><br>
+
+                    <span class="space">Address:</span>
+                    <input type="text" class="space" name="address" id="address" placeholder="Address" 
+                    maxlength="30"/><br>
+
+                    <span class="space">Duration of your subscription:</span><br>
+                    <select class="space" id="subscription-dropdown">
+                        <option value="1">1 month</option>
+                        <option value="2">3 months</option>
+                        <option value="3">6 months</option>
+                        <option value="4">12 months</option>
+                    </select>
+                    <br>
+                    <p class="space" >*At the moment only payment option is paying by cash at delivery.</p>
+                    <button type="submit" id="submit-btn-modal">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <script type="module">
+
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+            import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+            
+            const firebaseConfig = {
+            apiKey: "AIzaSyDDo7-gK5mkQu7Duc6UfoICRivPIP2-r7o",
+            authDomain: "parkandbark-bddad.firebaseapp.com",
+            databaseURL: "https://parkandbark-bddad-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "parkandbark-bddad",
+            storageBucket: "parkandbark-bddad.appspot.com",
+            messagingSenderId: "140773447982",
+            appId: "1:140773447982:web:9d3e06fa2858c26d21c2bf",
+            measurementId: "G-PPN7PHYLNJ"
+            };
+
+            const app = firebase.initializeApp(firebaseConfig);
+
+          var logoutLink = document.getElementById('logout-link');
+
+          logoutLink.addEventListener('click', function () {
+
+              localStorage.removeItem('username');
+
+              window.location.href = 'login.html';
+          });
+
+            document.getElementById('subcribe-btn-modal').addEventListener('click', function() {
+                document.getElementById('comment-modal').style.display = 'block';
+                
+            });
+
+            document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('comment-modal').style.display = 'none';
+            });
+
+                document.getElementById('comment-form').addEventListener('submit', formSubmit);
+
+                async function formSubmit(e) {
+                    e.preventDefault();
+                    console.log("Form submitted!");
+
+                    let name = document.getElementById('name').value;
+                    let lastName = document.getElementById('lastName').value;
+                    let address = document.getElementById('address').value;
+                    let months = document.getElementById('subscription-dropdown').value;
+
+                    const database = getDatabase(app);
+                    const ReviewRef = ref(database, 'parknbarkbox');
+
+                    try {
+                        const querySnapshot = await get(ReviewRef);
+                        const reviews = querySnapshot.val();
+
+                        sendMessage(name, lastName, address, months);
+                        document.getElementById('comment-modal').style.display = 'none';
+                
+                    } catch (error) {
+                        console.error("Error querying the database:", error);
+                    }
+                }
+
+                function sendMessage(name, lastName, address, months) {
+                    const database = getDatabase(app);
+
+                    set(ref(database, 'parknbarkbox/' + Math.floor(Math.random() * 10000000)), {
+                        name: name,
+                        lastName: lastName,
+                        address: address,
+                        months: months
+                    })
+                        .then(() => {
+                        document.querySelector('.alert').textContent = 'Data added successfully!';
+                        document.querySelector('.alert').style.display = 'block';
+                        setTimeout(function () {
+                            document.querySelector('.alert').style.display = 'none';
+                            console.log("Reloading the page...");
+                            window.location.reload();
+                            console.clear;
+                        }, 5000);
+                        })
+                        .catch((error) => {
+                        document.querySelector('.alert').textContent = 'Error: Data could not be added.';
+                        document.querySelector('.alert').style.display = 'block';
+                        setTimeout(function () {
+                            document.querySelector('.alert').style.display = 'none';
+                        }, 5000);
+                        console.error(error);
+                        });
+                    }
+        </script>
+
+
+      <div class="container">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="wrap">  
+                        <div class="dog-body">
+                          <div class="dog-ear left"></div>
+                          <div class="dog-ear right"></div>
+                          <div class="dog-eye left"></div>
+                          <div class="dog-eye right"></div>    
+                          <div class="dog-nose"></div>
+                          <div class="dog-collar"></div>
+                          <div class="dog-foot left"></div>
+                          <div class="dog-foot right"></div>
+                          <div class="dog-tail"></div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 linkovi">
+                    <a href="about.html">ABOUT</a><br>
+                    <a href="parks.html">PARKS</a><br>
+                    <a href="tindog.html">TINDOG</a><br>
+                    <a href="woofbox.html">PARK&BARK BOX</a><br>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 contact">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="contact-text">0911683095</span>
+                    </div>
+                
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-text">barkandpark@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-sm-12 ikone">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>

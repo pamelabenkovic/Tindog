@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffedad;
+  padding: 30px 0;
+}
+
+.profile-signup {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.u-form-group {
+  margin-bottom: 20px;
+}
+
+.u-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.u-form-group p {
+  margin-bottom: 10px;
+}
+
+.u-form-group img {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.u-form-group button {
+  width: 100%;
+  background-color: #FFE16E;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.u-form-group button:hover {
+  background-color: #f5d452;
+}
+
+.alert {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alert.error {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+}
+
+.close-button a {
+  display: block;
+  background-color: #FFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button i {
+  font-size: 24px;
+  color: #333;
+}

@@ -1,0 +1,45 @@
+.velikaSlika {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1%;
+}
+
+.article-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1.4;
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+.article-text {
+    margin-right: 30%;
+    margin-left: 10%;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.autorSlika {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.autor-ime-prezime {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body{
+    overflow-x: hidden;
+}

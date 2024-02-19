@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/naslovnicaCss.css">
+    <link rel="stylesheet" href="../css/navig.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova|Poppins" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Park&Bark</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="header">
+          <div class="logo">
+            <a href="naslovna.html"><img src="../image/Park&Bark.png" alt="Park&Bark Logo"></a>
+          </div>
+          <nav class="navigation">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="parks.html">PARKS</a></li>
+              <li><a href="tindog.html">TINDOG</a></li>
+              <li><a href="woofbox.html">P&B BOX</a></li>
+              <li><a href="login.html" id="logout-link">LOG OUT</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+
+      <div class="container clanci">
+        <div class="row no-gutters">
+            <div class="col-lg-7 col-md-12 col-sm-12 lijevaStrana" >
+                <div class="main-article article" data-article-id="1">
+                    <img src="../image/clanci/reaktivni.jpg" alt="Glavni članak" class="velikaSlika">
+                    <h2>Why is your dog reactive and how to help them?</h2>
+                    <p>As pets become a bigger part of our lives (and photo albums), it’s no surprise that many pet parents are also becoming more aware of their pets’ needs and preferences.</p>
+                </div>
+            </div>
+    
+            <div class="col-lg-5 col-md-12 col-sm-12 desnaStranaClanak">
+              <div class="small-article mt-5">
+                <h3 class="click-to-see">Latest stories</h3>
+                
+                <div class="small-article mt-5 article" data-article-id="2">
+                  <div class="all-stories">
+                      <div class="story-thumbnail">
+                          <img src="../image/clanci/safeFood.jpg" alt="Svi članci" class="img-fluid">
+                      </div>
+                      <div class="story-details">
+                          <p class="story-title">DOG HEALTH</p>
+                          <h3 class="story-description">Check to see if your dinner is hurting your dog</h3>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="small-article mt-5 article" data-article-id="4">
+                  <div class="all-stories">
+                    <div class="story-thumbnail">
+                        <img src="../image/clanci/homeAlone.jpg" alt="Svi članci" class="img-fluid">
+                    </div>
+                    <div class="story-details">
+                        <p class="story-title">GETTING A DOG</p>
+                        <h3 class="story-description">Leaving your dog home alone</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="small-article mt-5 article" data-article-id="3">
+                  <div class="all-stories">
+                    <div class="story-thumbnail">
+                        <img src="../image/clanci/pawLick.jpg" alt="Svi članci" class="img-fluid">
+                    </div>
+                    <div class="story-details">
+                        <p class="story-title">DOG HEALTH</p>
+                        <h3 class="story-description">Why is your dog licking its paws?</h3>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="small-article mt-5 article" data-article-id="5">
+                <div class="all-stories">
+                    <div class="story-thumbnail">
+                        <img src="../image/clanci/whatToKnow.jpg" alt="Svi članci" class="img-fluid">
+                    </div>
+                    <div class="story-details">
+                        <p class="story-title">GETTING A DOG</p>
+                        <h3 class="story-description">What you should know before getting a dog</h3>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <div class="ad container">
+      <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <a href="woofbox.html"><image src="../image/woofbox.jpg"></image></a>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <p>Looking for a way to spoil your dog? Look no further, Park&Bark Box is here to help you!</p>
+            <br>
+            <div class="container dogButton">
+              <a href="woofbox.html">
+              <div class="button-container">
+                <div class="dog">
+                  <div class="tail"></div>
+                  <div class="body"></div>
+                  <div class="head">
+                    <div class="eyes">
+                      <div class="left"></div>
+                      <div class="right"></div>
+                    </div>
+                    <div class="nuzzle">
+                      <div class="mouth">
+                        <div class="tongue"></div>
+                      </div>
+                      <div class="nose">
+                        <div class="nostrils"></div>
+                        <div class="highlight"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ears">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                  </div>
+                </div>
+                <button id="subcribe-btn-modal">
+                  SUBSCRIBE!
+                </button>
+                <div class="paw"></div>
+                <div class="paw top"></div>
+              </div>
+            </a>
+            </div><br><br>
+            <p>JUST 49,99€/MONTH</p>
+          </div>
+      </div>
+    </div>
+
+    <script>
+      const articleBoxes = document.querySelectorAll('.article');
+
+      articleBoxes.forEach((box) => {
+        box.addEventListener('click', () => {
+            const articleId = box.dataset.articleId;
+
+            window.location.href = `clanak.html?id=${articleId}`;
+        });
+    });
+
+    var logoutLink = document.getElementById('logout-link');
+
+    logoutLink.addEventListener('click', function () {
+        localStorage.removeItem('username');
+
+        window.location.href = 'login.html';
+    });
+    </script>
+
+<div class="container">
+  <footer class="footer">
+      <div class="row">
+          <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="wrap">  
+                  <div class="dog-body">
+                    <div class="dog-ear left"></div>
+                    <div class="dog-ear right"></div>
+                    <div class="dog-eye left"></div>
+                    <div class="dog-eye right"></div>    
+                    <div class="dog-nose"></div>
+                    <div class="dog-collar"></div>
+                    <div class="dog-foot left"></div>
+                    <div class="dog-foot right"></div>
+                    <div class="dog-tail"></div>
+                  </div>
+                </div>
+          </div>
+
+          <div class="col-lg-3 col-md-12 col-sm-12 linkovi">
+              <a href="about.html">ABOUT</a><br>
+              <a href="parks.html">PARKS</a><br>
+              <a href="tindog.html">TINDOG</a><br>
+              <a href="woofbox.html">PARK&BARK BOX</a><br>
+          </div>
+
+          <div class="col-lg-3 col-md-12 col-sm-12 contact">
+              <div class="contact-info">
+                <i class="fas fa-phone"></i>
+                  <span class="contact-text">0911683095</span>
+              </div>
+          
+              <div class="contact-info">
+                  <i class="fas fa-envelope"></i>
+                  <span class="contact-text">barkandpark@gmail.com</span>
+              </div>
+          </div>
+
+          <div class="col-lg-3 col-md-12 col-sm-12 ikone">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+  </footer>
+</div>
+</body>
+</html>

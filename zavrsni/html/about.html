@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/navig.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova|Poppins" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>About</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="header">
+          <div class="logo">
+            <a href="naslovna.html"><img src="../image/Park&Bark.png" alt="Park&Bark Logo"></a>
+          </div>
+          <nav class="navigation">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="parks.html">PARKS</a></li>
+              <li><a href="tindog.html">TINDOG</a></li>
+              <li><a href="woofbox.html">P&B BOX</a></li>
+              <li><a href="login.html" id="logout-link">LOG OUT</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+
+      <div class="container">
+        <div class="parallax1"></div>
+        <div class="tekst">
+          <p class="naslov">IDEA BEHIND PARK&BARK</p>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="odlomak">
+              Welcome to Park&Bark, where we it is all about you and you furry best friend! Our busy lifestyle can get pretty
+              lonely pretty quick so having an app where you can connect with other dog owners can be really helpful.
+              As a dog owner myself, i realised there is no website that is keeping track of state and conditions of dog parks in Zagreb
+              and thought that had to change. Also considering finding friends irl can often be hard I created Tindog, a fun 
+              "dating app" for dogs that gives you a chance to make new friends for yourself and your pet.
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 slika1">
+            <img src="../image/about/ZaraIJa.jpg">
+          </div>
+          </div>
+          
+        <div class="parallax1"></div>
+      </div>
+
+      <div class="container">
+        <div class="parallax2"></div>
+        <div class="tekst">
+          <p class="naslov">DOG PARKS</p>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 slika2">
+            <img src="../image/about/dogPark.jpg">
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="odlomak2">
+             You can use our Parks feature to rate and comment on your local dog parks yourself!
+             You can simply click on a park of your choice and see comments from other users
+             regarding its condition. You can also "check in" into a park so that users can see you are
+             at that park at that moment. Looking at list of other users in the park can also help you awoid crowds if 
+             your dog doesn't do well in noisy environment.
+            </p>
+          </div>
+          </div>
+        <div class="parallax2"></div>
+      </div>
+
+      <div class="container">
+        <div class="parallax3"></div>
+        <div class="tekst">
+          <p class="naslov">PARK&BARK BOX</p>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="odlomak">
+              We all love to spoil our pets and what better way to spoil them than to have montly subscription
+              box full of toys, treats and equipment for them. For the ptice of 49,99 euros a month you are 
+              guaranteed at least 80 euros worth of content. We carefully select all items keeping in mind
+              your dogs health and trying to maximize their joy.
+            </p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 slika1">
+            <img src="../image/about/ParkAndBarkBox.jpg">
+          </div>
+          </div>
+        <div class="parallax3"></div>
+      </div>
+
+      <div class="container">
+        <div class="parallax4"></div>
+        <div class="tekst">
+          <p class="naslov">TINDOG</p>
+          <div class="col-lg-6 col-md-6 col-sm-6 slika4">
+            <img src="../image/about/tinDog3.jpg">
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <p class="odlomak2">
+             Explore Tindog and find your dog friends to play with or go on adventures together. If you want a chance
+             meet the dog on a card and its owner click heart button. If the owner of the dog liked your dog card too 
+             it will show you that it is a match. If it is a match you can send that owner an email and get yourdo ready 
+             for a play date.
+            </p>
+          </div>
+          </div>
+        <div class="parallax4"></div>
+      </div>
+
+
+      <script>
+          var logoutLink = document.getElementById('logout-link');
+
+          logoutLink.addEventListener('click', function () {
+              localStorage.removeItem('username');
+
+              window.location.href = 'login.html';
+          });
+
+      </script>
+
+
+      <div class="container">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="wrap">  
+                        <div class="dog-body">
+                          <div class="dog-ear left"></div>
+                          <div class="dog-ear right"></div>
+                          <div class="dog-eye left"></div>
+                          <div class="dog-eye right"></div>    
+                          <div class="dog-nose"></div>
+                          <div class="dog-collar"></div>
+                          <div class="dog-foot left"></div>
+                          <div class="dog-foot right"></div>
+                          <div class="dog-tail"></div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 linkovi">
+                    <a href="about.html">ABOUT</a><br>
+                    <a href="parks.html">PARKS</a><br>
+                    <a href="tindog.html">TINDOG</a><br>
+                    <a href="woofbox.html">PARK&BARK BOX</a><br>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 contact">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="contact-text">0911683095</span>
+                    </div>
+                
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-text">barkandpark@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 ikone">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+      </div>
+</body>
+</html>
